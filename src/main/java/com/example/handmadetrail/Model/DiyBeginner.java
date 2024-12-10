@@ -33,6 +33,7 @@ public class DiyBeginner {
 
     @NotEmpty(message = "Password can't be empty.")
     @Size(min = 8, max = 20, message = "Password length must be between 8-20 characters.")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,20}$", message = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.")
     @Column(columnDefinition = "varchar(20) not null")
     @Check(constraints = "length(password) >= 8")
     private String password;
